@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
+
+@import "./variables.scss";
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: $rootFontSize;
+  background: $backgroundColor;
+}
+
+body {margin: 0}
+
+.container {
+  padding-top: $headerHeight;
+}
+
+@mixin text-regular {
+  font-weight: $regular;
+  font-size: 1rem;
+  color: $gray;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+}
+
+button{outline:none; border:none}
+button:hover{cursor: pointer}
+
+.btn {
+  height: $btnHeight;
+  width: auto;
+  min-width: 90px;
+  justify-content: center;
+  text-align: center;
+  line-height: $btnHeight;
+  padding: 0 1.4rem;
+  border-radius: 500px;
+}
+
+.btn-primary {
+  position: relative;
+  background: $primaryColor;
+  color: white;
+  font-weight: $semibold;
+
+  &:hover {
+    box-shadow: 0px 11px 15px rgba(247, 82, 82, 0.15), 0px 0px 19px rgba(247, 82, 82, 0.15);
+  }
+}
+
+.btn-primary span::before {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    background: white;
+    width: 0;
+    height: 100%;
+    content: "";
+    transition: all 0.35s ease-in-out;
+    border-radius: 500px 8px 8px 500px;
+}
+
+.btn-primary:hover span::before {
+  width: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.btn-primary span::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 0;
+    height: 100%;
+    content: "";
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+    border-radius: 500px 8px 8px 500px;
+}
+
+.btn-primary:hover span::after {
+  width: 100%;
+  left: 0;
+  opacity: 0;
+}
+
+.btn-outline {
+  background: none;
+  color: $primaryColor;
+  border: 1px solid $primaryColor;
+
+  &:hover {
+    background: $primaryColor;
+    color: white;
+  }
+}
+
+input {
+  height: 40px;
+  background: white;
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+  border-radius: $commonRadius;
+  outline: none;
+
+  text-align: center;
+  color: $black;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+
+  &::placeholder {
+    @include text-regular;
+    color: #ababab;
+  }
+}
+
+//Icons
+.icon-md {font-size: 18px}
+.icon-lg {font-size: 24px}
+
+//Cards
+.card {
+  background: white;
+  border-radius: $commonRadius;
+  padding: 1.8rem 2.14rem;
+  display: table;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08),
+  0px 15px 30px rgba(0, 0, 0, 0.11);
+
+  .card--container {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .card--title {
+    font-size: 1.7rem;
+    color: $black;
+    font-weight: $bold;
+    margin-bottom: 0.8rem;
+
+    i {
+      color: $gray;
+      margin-right: 5px;
+    }
+  }
+
+  .card--content {
+    font-size: 1rem;
+    color: $gray;
+  }
+
+  .card--action {
+    text-align: end;
+  }
+}
