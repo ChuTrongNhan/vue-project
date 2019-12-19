@@ -17,7 +17,12 @@
 
 <script>
 export default {
-  name: "HomeSearch"
+  name: "HomeSearch",
+  data() {
+    return {
+      searchPokemon: ""
+    };
+  }
 };
 </script>
 
